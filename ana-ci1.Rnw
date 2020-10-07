@@ -1,0 +1,62 @@
+\documentclass[fleqn]{article}
+
+\topmargin=-0.3in
+\textheight=8in
+\oddsidemargin=0in
+\textwidth=6.5in
+
+\usepackage{indentfirst}
+
+\setlength{\parindent}{0.6cm}
+
+\newcommand{\refn}[1]{\raisebox{1ex}{\footnotesize{#1}}}
+
+\begin{document}
+
+\newpage
+
+\setcounter{page}{1}
+\renewcommand{\baselinestretch}{1.4142} \small\normalsize
+\section*{Analysis}
+\begin{verse}
+From: Travis\\
+To: the void\\
+Date: \today\\
+Re: Statistical analyses\\
+\end{verse}
+
+\section{Importation}
+Warning! This script vaporizes the workspace!
+<<>>=
+opts_chunk$set(fig.path='step1/')
+rm(list=objects())
+@
+
+\subsection{Initialization}
+<<>>=
+library(merTools)
+library(multcomp)
+library(plyr)
+library(L1pack)
+library(lme4)
+library(boot)
+library(reshape2)
+library(irr)
+@
+
+\section{Descriptive}
+<<>>=
+ca <- read.csv("Data-Set-Cases-and-Contacts-10-3-2020-casetable.csv",as.is=TRUE,header=TRUE)
+co <- read.csv("Data-Set-Cases-and-Contacts-10-3-2020-contactstable.csv",as.is=TRUE,header=TRUE)
+@
+
+
+\section*{Appendix}
+<<>>=
+save.image("img.RData")
+R.Version()
+@
+
+\vfill
+
+\end{document}
